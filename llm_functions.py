@@ -9,9 +9,14 @@ import matplotlib.pyplot as plt
 import uuid
 import textwrap
 import json
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Initialize the OpenAI Chat model
-llm = ChatOpenAI(api_key='INSERT-OPENAI-KEY', model='gpt-4o-mini',temperature = 0)
+llm = ChatOpenAI(api_key=os.getenv('OPENAI_API_KEY'), model='gpt-4o-mini', temperature=0)
 
 reasoning_test = """Assume the laws of physics on Earth. 
                     A small marble is put into a normal cup and the cup is placed upside down on a table. 
